@@ -6,28 +6,32 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/manhole-{{ version }}.tar.gz
   sha256: bada20a25b547b395d472e2e08928f0437df26bbdbda4797c55863198e29a21f
 
 build:
-  number: 3
   entry_points:
     - manhole-cli = manhole.cli:main
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
-  skip: true  # [win]
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv
+  number: 4
 
 requirements:
   host:
-    - python
+    - python >=3.6
     - pip
   run:
-    - python
+    - python >=3.6
+    - __unix
 
 test:
   imports:
     - manhole
   commands:
+    - pip check
     - manhole-cli --help
+  requires:
+    - pip
 
 about:
   home: https://github.com/ionelmc/python-manhole
