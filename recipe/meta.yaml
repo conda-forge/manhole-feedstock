@@ -1,5 +1,5 @@
 {% set name = "manhole" %}
-{% set version = "1.8.0" %}
+{% set version = "1.8.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/manhole-{{ version }}.tar.gz
-  sha256: bada20a25b547b395d472e2e08928f0437df26bbdbda4797c55863198e29a21f
+  sha256: 3668fdaf83b33c943db4e750e0c554e31c20f63338496895dd4d6410680d9c4b
 
 build:
   entry_points:
     - manhole-cli = manhole.cli:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 4
+  number: 0
 
 requirements:
   host:
