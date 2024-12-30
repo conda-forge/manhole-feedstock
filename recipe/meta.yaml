@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/manhole-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/manhole-{{ version }}.tar.gz
   sha256: 3668fdaf83b33c943db4e750e0c554e31c20f63338496895dd4d6410680d9c4b
 
 build:
@@ -14,14 +14,14 @@ build:
     - manhole-cli = manhole.cli:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pip
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - __unix
 
 test:
@@ -32,6 +32,7 @@ test:
     - manhole-cli --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/ionelmc/python-manhole
