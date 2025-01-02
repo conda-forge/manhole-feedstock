@@ -144,7 +144,7 @@ Feedstock Maintainers
 =====================
 
 * [@BastianZim](https://github.com/BastianZim/)
-* [@conda-forge/event-model](https://github.com/conda-forge/event-model/)
+* [@conda-forge/event-model](https://github.com/orgs/conda-forge/teams/event-model/)
 * [@kbeeperez](https://github.com/kbeeperez/)
 * [@mrakitin](https://github.com/mrakitin/)
 
